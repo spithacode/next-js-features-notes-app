@@ -1,6 +1,6 @@
 import { Note } from "./entities/note";
 
-export const notes: Note[] = [
+export const notes: Note[] = globalThis.notes ?? [
   {
     id: "1",
     title: "First Note",
@@ -14,3 +14,4 @@ export const notes: Note[] = [
     createdAt: new Date(),
   },
 ];
+globalThis.notes = notes;
