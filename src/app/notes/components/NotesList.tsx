@@ -3,10 +3,12 @@
 
 import { Note } from "@/entities/note";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { useDebounce } from "@reactuses/core";
+import { useRouter } from "next/navigation";
 
 export default function NotesList({
   notes,
@@ -20,6 +22,12 @@ export default function NotesList({
   search: string;
 }) {
   const [search, setSearch] = useState(initialSearch);
+  const debouncedSearchValue = useDebounce(search, 300);
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push(`/notes?page=${currentPage}&search=${debouncedSearchValue}`);
+  }, [debouncedSearchValue, currentPage, router]);
 
   return (
     <div>

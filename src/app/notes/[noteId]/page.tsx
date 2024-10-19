@@ -1,19 +1,27 @@
 import { getNote } from "@/use-cases/get-note";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import DeleteNoteButton from "./__components/DeleteButton";
+import DeleteNoteButton from "./components/DeleteButton";
 import { notFound } from "next/navigation";
+import { unstable_cache } from "next/cache";
 
+const fetchNote = async (id: string) => {
+  const note = await unstable_cache(getNote, [`note-details/${id}`], {
+    tags: ["note-details", `note-details/${id}`],
+  })({ id });
+
+  if (!note) {
+    return notFound();
+  }
+
+  return note;
+};
 export default async function NotePage({
   params,
 }: {
   params: { noteId: string };
 }) {
-  const note = await getNote({ id: params.noteId });
-
-  if (!note) {
-    return notFound();
-  }
+  const note = await fetchNote(params.noteId);
 
   return (
     <div className="container mx-auto py-8">

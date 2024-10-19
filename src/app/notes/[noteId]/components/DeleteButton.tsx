@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { deleteNoteAction } from "@/lib/actions/notes";
+import { deleteNoteAction } from "../actions/delete-note.action";
 
 export default function DeleteNoteButton({ id }: { id: string }) {
   const [isDeleting, setIsDeleting] = useState(false);

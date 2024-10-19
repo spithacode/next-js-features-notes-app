@@ -20,7 +20,7 @@ export default function Error({
       <AlertCircle className="mx-auto h-12 w-12 text-destructive" />
       <h2 className="mt-4 text-2xl font-semibold">Something went wrong!</h2>
       <p className="mt-2 text-muted-foreground">
-        We couldn't load the note you requested.
+        {"We couldn't load the note you requested."}
       </p>
       <div className="mt-6 flex justify-center space-x-4">
         <Button onClick={() => reset()}>Try again</Button>

@@ -1,5 +1,5 @@
 import { getNote } from "@/use-cases/get-note";
-import EditNoteForm from "./__components/EditNoteForm";
+import EditNoteForm from "./components/EditNoteForm";
 import { notFound } from "next/navigation";
 
 export default async function EditNotePage({

@@ -5,18 +5,22 @@ import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { createNoteAction } from "@/lib/actions/notes";
+import { updateNoteAction } from "../../actions/edit-note.action";
 
-export default function CreateNoteForm() {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+export default function NoteForm({
+  note,
+}: {
+  note: { id: string; title: string; content: string };
+}) {
+  const [title, setTitle] = useState(note.title);
+  const [content, setContent] = useState(note.content);
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await createNoteAction({ title, content });
-    //router.push("/notes");
-    //router.refresh();
+    await updateNoteAction({ id: note.id }, { title, content });
+    router.push("/notes");
+    router.refresh();
   };
 
   return (
@@ -39,7 +43,7 @@ export default function CreateNoteForm() {
           rows={10}
         />
       </div>
-      <Button type="submit"> Create Note</Button>
+      <Button type="submit">Update Note </Button>
     </form>
   );
 }

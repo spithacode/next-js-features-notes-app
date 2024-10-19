@@ -1,4 +1,4 @@
-import { NoteWhere } from "@/entities/note";
+import { NoteWhere } from "@/core/entities/note";
 import { notes } from "@/db";
 
 export async function deleteNote({ id }: NoteWhere) {
