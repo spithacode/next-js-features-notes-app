@@ -21,7 +21,7 @@ export default async function NotePage({
 }: {
   params: { noteId: string };
 }) {
-  const note = await fetchNote(params.noteId);
+  const note = await fetchNote(params.noteId.toString());
 
   return (
     <div className="container mx-auto py-8">

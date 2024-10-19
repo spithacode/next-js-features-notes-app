@@ -43,6 +43,7 @@
     "cmdk": "1.0.0",
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.3.0",
+    "framer-motion": "^11.11.9",
     "input-otp": "^1.2.4",
     "lucide-react": "^0.453.0",
     "nanoid": "^5.0.7",

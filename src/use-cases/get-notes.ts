@@ -1,5 +1,6 @@
 import { notes } from "@/db";
-import { Note, type QueryParams } from "@/entities/note";
+import { Note, type QueryParams } from "@/core/entities/note";
+import { sleep } from "@/lib/utils";
 
 export async function getNotes({
   page = 1,
@@ -8,6 +9,8 @@ export async function getNotes({
 }: QueryParams): Promise<{ notes: Note[]; total: number }> {
   const start = (page - 1) * limit;
   const end = start + limit;
+
+  await sleep();
   return {
     notes: notes
       .filter(
