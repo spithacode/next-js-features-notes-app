@@ -6,7 +6,7 @@ import {
   NoteWhere,
   WhereNoteSchema,
 } from "@/core/entities/note";
-import { updateNote } from "@/use-cases/update-note";
+import { updateNote } from "@/core/use-cases/update-note.use-case";
 import { revalidateTag } from "next/cache";
 
 export async function updateNoteAction(

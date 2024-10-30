@@ -1,4 +1,4 @@
-import { getRecentActivity } from "@/use-cases/get-recent-activity";
+import { getRecentActivity } from "@/core/use-cases/get-recent-activity.use-case";
 
 export default async function RecentActivity() {
   const activities = await getRecentActivity();

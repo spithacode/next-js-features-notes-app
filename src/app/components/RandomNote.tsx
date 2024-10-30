@@ -1,12 +1,5 @@
-import { notes } from "@/db";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-
-async function getRandomNote() {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
-  const randomIndex = Math.floor(Math.random() * notes.length);
-  return notes[randomIndex];
-}
+import { getRandomNote } from "@/core/use-cases/get-random-note.use-case";
 
 export default async function RandomNote() {
   const note = await getRandomNote();

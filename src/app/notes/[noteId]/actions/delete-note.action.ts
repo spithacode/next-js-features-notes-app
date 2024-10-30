@@ -1,7 +1,7 @@
 "use server";
 
 import { NoteWhere, WhereNoteSchema } from "@/core/entities/note";
-import { deleteNote } from "@/use-cases/delete-note";
+import { deleteNote } from "@/core/use-cases/delete-note.use-case";
 import { revalidateTag } from "next/cache";
 
 export async function deleteNoteAction(whereRaw: NoteWhere) {

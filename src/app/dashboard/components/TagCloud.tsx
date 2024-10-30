@@ -1,7 +1,7 @@
-import { getTags } from "@/use-cases/get-recent-tags";
+import { getRecentTags } from "@/core/use-cases/get-recent-tags.use-case";
 
 export default async function TagCloud() {
-  const tags = await getTags();
+  const tags = await getRecentTags();
 
   return (
     <div className="p-4 bg-white rounded-lg shadow">

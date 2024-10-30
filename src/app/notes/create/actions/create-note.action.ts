@@ -1,7 +1,7 @@
 "use server";
 
 import { InsertNoteSchema, NoteInsert } from "@/core/entities/note";
-import { createNote } from "@/use-cases/create-note";
+import { createNote } from "@/core/use-cases/create-note.use-case";
 import { revalidateTag } from "next/cache";
 
 export async function createNoteAction(rawNote: NoteInsert) {

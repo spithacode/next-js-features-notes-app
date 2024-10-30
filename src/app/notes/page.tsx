@@ -1,4 +1,4 @@
-import { getNotes } from "@/use-cases/get-notes";
+import { getNotes } from "@/core/use-cases/get-notes.use-case";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import NotesList from "./components/NotesList";

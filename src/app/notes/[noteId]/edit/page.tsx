@@ -1,4 +1,4 @@
-import { getNote } from "@/use-cases/get-note";
+import { getNote } from "@/core/use-cases/get-note.use-case";
 import EditNoteForm from "./components/EditNoteForm";
 import { notFound } from "next/navigation";
 

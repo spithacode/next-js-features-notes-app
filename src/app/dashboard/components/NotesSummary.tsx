@@ -1,4 +1,4 @@
-import { getNotesSummary } from "@/use-cases/get-notes-summary";
+import { getNotesSummary } from "@/core/use-cases/get-notes-summary.use-case";
 
 export default async function NotesSummary() {
   const summary = await getNotesSummary();

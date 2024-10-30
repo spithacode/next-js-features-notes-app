@@ -1,8 +1,8 @@
 import { Suspense } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 import NotesSummary from "./components/NotesSummary";
 import RecentActivity from "./components/RecentActivity";
 import TagCloud from "./components/TagCloud";
-import { Skeleton } from "@/components/ui/skeleton";
 
 export default function DashboardPage() {
   return (

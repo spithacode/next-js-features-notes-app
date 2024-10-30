@@ -1,16 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { sleep } from "@/lib/utils";
-
-async function getUserInfo() {
-  await sleep();
-  return {
-    name: "John Doe",
-    email: "john@example.com",
-    joinDate: "January 1, 2023",
-    notesCount: 42,
-  };
-}
+import { getUserInfo } from "@/core/use-cases/get-user-info.use-case";
 
 export default async function UserInfoPage() {
   const user = await getUserInfo();

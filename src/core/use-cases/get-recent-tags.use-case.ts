@@ -6,7 +6,7 @@ interface Tag {
   count: number;
 }
 
-export async function getTags(): Promise<Tag[]> {
+export async function getRecentTags(): Promise<Tag[]> {
   const tagCounts: { [key: string]: number } = {};
 
   notes.forEach((note) => {

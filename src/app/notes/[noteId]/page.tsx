@@ -1,4 +1,4 @@
-import { getNote } from "@/use-cases/get-note";
+import { getNote } from "@/core/use-cases/get-note.use-case";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import DeleteNoteButton from "./components/DeleteButton";
@@ -16,11 +16,12 @@ const fetchNote = async (id: string) => {
 
   return note;
 };
-export default async function NotePage({
-  params,
-}: {
-  params: { noteId: string };
-}) {
+export default async function NotePage(
+  props: {
+    params: Promise<{ noteId: string }>;
+  }
+) {
+  const params = await props.params;
   const note = await fetchNote(params.noteId.toString());
 
   return (
