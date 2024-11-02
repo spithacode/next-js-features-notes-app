@@ -1,6 +1,6 @@
 # Next.js 15 Features Notes App
 
-This repository contains the source code for a Notes Application built with Next.js 15, demonstrating various advanced features of the framework. This project is a companion to the blog article [Next.js 13 Deep Dive: Building a Notes App with Advanced Features](https://your-blog-url.com/nextjs-13-deep-dive-building-notes-app-advanced-features).
+This repository contains the source code for a Notes Application built with Next.js 15, demonstrating various advanced features of the framework. This project is a companion to the blog article [Next.js 13 Deep Dive: Building a Notes App with Advanced Features](https://spithacode.com/blog/nextjs-13-deep-dive-building-notes-app-advanced-features).
 
 ## Features Demonstrated
 
