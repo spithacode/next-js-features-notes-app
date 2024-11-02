@@ -1,10 +1,10 @@
 # Next.js 15 Features Notes App
 
-This repository contains the source code for a Notes Application built with Next.js 15, demonstrating various advanced features of the framework. This project is a companion to the blog article [Next.js 13 Deep Dive: Building a Notes App with Advanced Features](https://spithacode.com/blog/nextjs-13-deep-dive-building-notes-app-advanced-features).
+This repository contains the source code for a Notes Application built with Next.js 15, demonstrating various advanced features of the framework. This project is a companion to the blog article [Next.js 15 Deep Dive: Building a Notes App with Advanced Features](https://spithacode.com/blog/nextjs-15-deep-dive-building-notes-app-advanced-features).
 
 ## Features Demonstrated
 
-This application showcases the following Next.js 13 features:
+This application showcases the following Next.js 15 features:
 
 1. App Router
 2. Server and Client Components
@@ -34,7 +34,7 @@ To run this project locally:
 
 ## Learn More
 
-To learn more about the Next.js features demonstrated in this project, check out the accompanying blog article: [Next.js 13 Deep Dive: Building a Notes App with Advanced Features](https://your-blog-url.com/nextjs-13-deep-dive-building-notes-app-advanced-features).
+To learn more about the Next.js features demonstrated in this project, check out the accompanying blog article: [Next.js 15 Deep Dive: Building a Notes App with Advanced Features](https://spithacode.com/blog/nextjs-15-deep-dive-building-notes-app-advanced-features).
 
 ## Contributing
 
@@ -46,6 +46,6 @@ This project is open source and available under the MIT License.
 
 ## Contact
 
-If you have any questions or want to reach out, please contact [Sidali Assoul](/authors/sidali-assoul).
+If you have any questions or want to reach out, please contact [Sidali Assoul](https://spithacode.com/authors/sidali-assoul).
 
 Remember to replace the blog article URL with the actual URL once it's published.
