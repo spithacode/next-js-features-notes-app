@@ -2,13 +2,11 @@
 
 import { Note } from "@/core/entities/note";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { useDebounce } from "@reactuses/core";
-import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNotesSearch } from "./hooks/use-notes-search";
+import NoteView from "./NoteView";
 
 export default function NotesList({
   notes,
@@ -21,13 +19,7 @@ export default function NotesList({
   currentPage: number;
   search: string;
 }) {
-  const [search, setSearch] = useState(initialSearch);
-  const debouncedSearchValue = useDebounce(search, 300);
-  const router = useRouter();
-
-  useEffect(() => {
-    router.push(`/notes?page=${currentPage}&search=${debouncedSearchValue}`);
-  }, [debouncedSearchValue, currentPage, router]);
+  const { search, setSearch } = useNotesSearch({ initialSearch, currentPage });
 
   return (
     <motion.div
@@ -47,39 +39,7 @@ export default function NotesList({
       <AnimatePresence>
         <motion.div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3" layout>
           {notes.map((note) => (
-            <motion.div
-              key={note.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Card>
-                <CardHeader>
-                  <CardTitle>{note.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    {note.content.substring(0, 100)}...
-                  </p>
-                  <motion.div
-                    className="mt-4 flex justify-end space-x-2"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                  >
-                    <Link href={`/notes/${note.id}`}>
-                      <Button variant="outline">View</Button>
-                    </Link>
-                    <Link href={`/notes/${note.id}/edit`}>
-                      <Button variant="outline">Edit</Button>
-                    </Link>
-                  </motion.div>
-                </CardContent>
-              </Card>
-            </motion.div>
+            <NoteView note={note} key={note.id} />
           ))}
         </motion.div>
       </AnimatePresence>

@@ -1,18 +1,12 @@
-import { getNote } from "@/core/use-cases/get-note.use-case";
 import EditNoteForm from "./components/EditNoteForm";
-import { notFound } from "next/navigation";
-
+import { fetchNote } from "../fetchers/fetch-note";
 export default async function EditNotePage({
   params,
 }: {
-  params: { noteId: string };
+  params: Promise<{ noteId: string }>;
 }) {
-  console.log("update note----->", params);
-  const note = await getNote({ id: params.noteId });
-
-  if (!note) {
-    return notFound();
-  }
+  const { noteId } = await params;
+  const note = await fetchNote(noteId);
 
   return (
     <div className="container mx-auto py-8">

@@ -14,7 +14,6 @@ export default function DeleteNoteButton({ id }: { id: string }) {
       setIsDeleting(true);
       await deleteNoteAction({ id });
       router.push("/notes");
-      router.refresh();
     }
   };
 

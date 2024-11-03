@@ -5,17 +5,13 @@ import NotesList from "./components/NotesList";
 import { QueryParams } from "@/core/entities/note";
 import { unstable_cache } from "next/cache";
 
-async function fetchNotes(params: QueryParams) {
-  return await unstable_cache(getNotes, ["notes"], { tags: ["notes"] })({
-    ...params,
-  });
-}
+export default async function NotesPage(
+  props: Promise<{
+    searchParams: { page?: string; search?: string };
+  }>,
+) {
+  const { searchParams } = await props;
 
-export default async function NotesPage({
-  searchParams,
-}: {
-  searchParams: { page?: string; search?: string };
-}) {
   const page = Number(searchParams.page) || 1;
   const search = searchParams.search || "";
   const { notes, total } = await fetchNotes({ page, search, limit: 5 });
@@ -36,4 +32,10 @@ export default async function NotesPage({
       />
     </div>
   );
+}
+
+async function fetchNotes(params: QueryParams) {
+  return await unstable_cache(getNotes, ["notes"], { tags: ["notes"] })({
+    ...params,
+  });
 }
